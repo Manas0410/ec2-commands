@@ -148,3 +148,12 @@ sudo nginx -t
 ```bash
 sudo systemctl restart nginx
 ```
+
+
+// symlink was not created
+
+// pm2 startup
+
+// enable in mongo
+
+// sudo systemctl enable mongo
