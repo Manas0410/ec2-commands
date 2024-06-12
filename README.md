@@ -100,3 +100,51 @@ pm2 restart <id>
 pm2 stop <id>
 pm2 delete <id>
 ```
+
+# Nginx Setup
+
+### Install Nginx
+
+```bash
+sudo apt install nginx
+```
+
+### Unlink Default Configurations
+
+```bash
+sudo unlink /etc/nginx/sites-available/default
+sudo unlink /etc/nginx/sites-enabled/default
+```
+
+### Create Domain Configuration File
+
+```bash
+sudo touch /etc/nginx/sites-available/domain.com
+sudo vim /etc/nginx/sites-available/domain.com
+```
+
+### Paste the Following Code into the Domain Configuration File
+
+```nginx
+server {
+    listen 80;
+    server_name domain.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+    }
+}
+```
+
+### Create Symbolic Link and Test Configuration
+
+```bash
+sudo ln -s /etc/nginx/sites-available/domain.com /etc/nginx/sites-enabled/
+sudo nginx -t
+```
+
+### Restart Nginx
+
+```bash
+sudo systemctl restart nginx
+```
