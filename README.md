@@ -10,19 +10,19 @@ sudo apt update
 
 ## Install Node.js
 
-### Install NVM
+#### Install NVM
 
 ```bash
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
 ```
 
-### Activate NVM
+#### Activate NVM
 
 ```bash
 . ~/.nvm/nvm.sh
 ```
 
-### Install Node.js (choose version or use `node` for the latest version)
+#### Install Node.js (choose version or use `node` for the latest version)
 
 ```bash
 nvm install node
@@ -38,13 +38,13 @@ sudo apt-get update
 sudo apt-get install -y mongodb-org
 ```
 
-### Start MongoDB
+#### Start MongoDB
 
 ```bash
 sudo systemctl start mongod
 ```
 
-### Check MongoDB Status
+#### Check MongoDB Status
 
 ```bash
 sudo systemctl status mongod
@@ -52,31 +52,31 @@ sudo systemctl status mongod
 
 ## PM2 Commands
 
-### Installation
+#### Installation
 
 ```bash
 npm install pm2 -g
 ```
 
-### Start Instance with PM2
+#### Start Instance with PM2
 
 ```bash
 pm2 start app.js
 ```
 
-### Check Logs
+#### Check Logs
 
 ```bash
 pm2 logs
 ```
 
-### Check All Logs
+#### Check All Logs
 
 ```bash
 pm2 ls
 ```
 
-### Managing Processes
+#### Managing Processes
 
 ```bash
 pm2 restart app_name
@@ -85,7 +85,7 @@ pm2 stop app_name
 pm2 delete app_name
 ```
 
-### Act on All Processes
+#### Act on All Processes
 
 ```bash
 pm2 restart all
@@ -93,7 +93,7 @@ pm2 stop all
 pm2 delete all
 ```
 
-### Act on a Specific Process ID
+#### Act on a Specific Process ID
 
 ```bash
 pm2 restart <id>
