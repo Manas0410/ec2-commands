@@ -173,6 +173,17 @@ sudo systemctl reload nginx
 sudo systemctl status nginx
 ```
 
+### commands to remove nginx 
+```bash
+sudo systemctl stop nginx
+sudo apt-get purge nginx nginx-common nginx-full -y
+sudo rm -rf /etc/nginx
+sudo rm -rf /var/www/html
+sudo rm -rf /var/log/nginx
+sudo apt-get autoremove -y
+sudo apt-get autoclean -y
+```
+
 // symlink was not created
 
 // pm2 startup
