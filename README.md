@@ -143,12 +143,35 @@ sudo ln -s /etc/nginx/sites-available/domain.com /etc/nginx/sites-enabled/
 sudo nginx -t
 ```
 
+### Start Nginx
+
+```bash
+sudo systemctl start nginx
+```
+
+### Stop Nginx
+
+```bash
+sudo systemctl dtop nginx
+```
+
 ### Restart Nginx
 
 ```bash
 sudo systemctl restart nginx
 ```
 
+### Restart Nginx
+
+```bash
+sudo systemctl reload nginx
+```
+
+### Check status of Nginx
+
+```bash
+sudo systemctl reload nginx
+```
 
 // symlink was not created
 
