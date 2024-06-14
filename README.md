@@ -123,24 +123,16 @@ sudo touch /etc/nginx/sites-available/domain.com
 sudo vim /etc/nginx/sites-available/domain.com
 ```
 
-### Paste the Following Code into the Domain Configuration File
-
-```nginx
-server {
-    listen 80;
-    server_name domain.com;
-
-    location / {
-        proxy_pass http://127.0.0.1:3000;
-    }
-}
-```
-
 ### Create Symbolic Link and Test Configuration
 
 ```bash
 sudo ln -s /etc/nginx/sites-available/domain.com /etc/nginx/sites-enabled/
 sudo nginx -t
+```
+
+### Read errors
+```bash
+sudo tail -f /var/log/nginx/error.log
 ```
 
 ### Start Nginx
@@ -186,28 +178,34 @@ sudo apt-get autoclean -y
 
 # Deployment of backend application via NGINX
 
-###1 make sure all the needed dependencies , pm2 and nginx is installed
+### 1 make sure all the needed dependencies , pm2 and nginx is installed
 
-###2 clone ur project and install all the dependencies
+### 2 clone ur project and install all the dependencies 
 
-###3 unlink the default configuration of nginx
+### 3 start ur project using pm2
+
+```bash
+pm2 start ./server.js
+```
+
+### 4 unlink the default configuration of nginx
 
 ```bash
 sudo unlink /etc/nginx/sites-available/default
 sudo unlink /etc/nginx/sites-enabled/default
 ```
 
-###4 create confiuration file 
+### 5 create confiuration file 
 ```bash
 sudo touch /etc/nginx/sites-available/domain.com
 ```
 
-###5 paste the below code in configuration file
+### 6 paste the below code in configuration file
 ```bash
 sudo vim /etc/nginx/sites-available/domain.com
 ```
 
-##1 => to serve on main url
+## a => to serve on main url
 ```nginx
 server {
     listen 80;
@@ -219,7 +217,7 @@ server {
 }
 ```
 
-##2=> ton serve on mainurl/backend
+## b=> ton serve on mainurl/backend
 ```nginx
 server {
     listen 80;
@@ -232,14 +230,39 @@ server {
 ```
 
 
-###6 Create Symbolic Link and Test Configuration
+### 7 Create Symbolic Link and Test Configuration
 
 ```bash
 sudo ln -s /etc/nginx/sites-available/domain.com /etc/nginx/sites-enabled/
 sudo nginx -t
 ```
 
+# Deployment of frontend application via Nginx
 
+### 1 clone ur project and make sure all the dependencies are installed 
+
+### 2 make build
+
+```bash
+npm run build
+```
+
+### 3 unlink the default configuration of nginx
+
+```bash
+sudo unlink /etc/nginx/sites-available/default
+sudo unlink /etc/nginx/sites-enabled/default
+```
+
+### 4 create confiuration file 
+```bash
+sudo touch /etc/nginx/sites-available/domain.com
+```
+
+### 5 paste the below code in configuration file
+```bash
+sudo vim /etc/nginx/sites-available/domain.com
+```
 
 // symlink was not created
 
