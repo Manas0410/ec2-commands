@@ -161,10 +161,10 @@ sudo systemctl dtop nginx
 sudo systemctl restart nginx
 ```
 
-### Restart Nginx
+### Reload Nginx
 
 ```bash
-sudo systemctl restart nginx
+sudo systemctl reload nginx
 ```
 
 ### Check status of Nginx
