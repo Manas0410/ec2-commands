@@ -164,13 +164,13 @@ sudo systemctl restart nginx
 ### Restart Nginx
 
 ```bash
-sudo systemctl reload nginx
+sudo systemctl restart nginx
 ```
 
 ### Check status of Nginx
 
 ```bash
-sudo systemctl reload nginx
+sudo systemctl status nginx
 ```
 
 // symlink was not created
