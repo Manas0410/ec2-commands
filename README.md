@@ -184,6 +184,63 @@ sudo apt-get autoremove -y
 sudo apt-get autoclean -y
 ```
 
+# Deployment of backend application via NGINX
+
+###1 make sure all the needed dependencies , pm2 and nginx is installed
+
+###2 clone ur project and install all the dependencies
+
+###3 unlink the default configuration of nginx
+
+```bash
+sudo unlink /etc/nginx/sites-available/default
+sudo unlink /etc/nginx/sites-enabled/default
+```
+
+###4 create confiuration file 
+```bash
+sudo touch /etc/nginx/sites-available/domain.com
+```
+
+###5 paste the below code in configuration file
+```bash
+sudo vim /etc/nginx/sites-available/domain.com
+```
+
+##1 => to serve on main url
+```nginx
+server {
+    listen 80;
+    server_name domain.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+    }
+}
+```
+
+##2=> ton serve on mainurl/backend
+```nginx
+server {
+    listen 80;
+    server_name domain.com;
+
+    location /backend/ {
+        proxy_pass http://127.0.0.1:3000/;
+    }
+}
+```
+
+
+###6 Create Symbolic Link and Test Configuration
+
+```bash
+sudo ln -s /etc/nginx/sites-available/domain.com /etc/nginx/sites-enabled/
+sudo nginx -t
+```
+
+
+
 // symlink was not created
 
 // pm2 startup
