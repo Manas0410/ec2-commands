@@ -271,3 +271,5 @@ sudo vim /etc/nginx/sites-available/domain.com
 // enable in mongo
 
 // sudo systemctl enable mongo
+give permission to var
+ sudo chown -R $USER:$GROUP /var/simple-react-app-to-deploy
