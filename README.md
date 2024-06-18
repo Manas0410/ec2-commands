@@ -241,6 +241,12 @@ sudo nginx -t
 
 ### 1 clone ur project and make sure all the dependencies are installed 
 
+clone ur project in var folder 
+if u get any error related to permission run below command
+```bash
+sudo chown -R $USER:$GROUP /var/simple-react-app-to-deploy
+```
+
 ### 2 make build
 
 ```bash
@@ -263,13 +269,17 @@ sudo touch /etc/nginx/sites-available/domain.com
 ```bash
 sudo vim /etc/nginx/sites-available/domain.com
 ```
+```nginx
+server {
+    server_name domain.com;
 
-// symlink was not created
+    root /var/simple-react-app-to-deploy/dist;
+    index index.html;
 
-// pm2 startup
+    location / {
+         try_files $uri $uri/ /index.html;
+    }
+}
+```
 
-// enable in mongo
-
-// sudo systemctl enable mongo
-give permission to var
- sudo chown -R $USER:$GROUP /var/simple-react-app-to-deploy
+### 6 check ur configuration and restart nginx
