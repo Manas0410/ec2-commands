@@ -283,3 +283,16 @@ server {
 ```
 
 ### 6 check ur configuration and restart nginx
+
+
+# Certbot commands to ALLOW HTTPS
+
+```bash
+sudo apt update
+sudo apt install snapd
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo certbot --nginx -d domain.com
+sudo certbot renew --dry-run
+sudo systemctl restart nginx
+```
